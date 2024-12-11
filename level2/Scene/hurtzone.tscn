@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://pvb0rul123v"]
+
+[ext_resource type="Script" path="res://level2/Script/hurtzone.gd" id="1_tkhwt"]
+
+[node name="hurtzone" type="Area2D"]
+script = ExtResource("1_tkhwt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

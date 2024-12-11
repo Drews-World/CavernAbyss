@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfibm55fy3ww5"]
+
+[ext_resource type="Script" path="res://level2/Script/next_level_marker.gd" id="1_xoeqh"]
+
+[node name="Next Level Marker" type="Area2D"]
+script = ExtResource("1_xoeqh")

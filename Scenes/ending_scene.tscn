@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlnis65o3flq8"]
+
+[ext_resource type="Script" path="res://Scripts/ending_scene.gd" id="1_4ldgr"]
+[ext_resource type="VideoStream" path="res://Assets/cutscenepics/cavernending-b84waw.ogv" id="1_qd62n"]
+[ext_resource type="FontFile" uid="uid://dwvxiy5kppge6" path="res://Assets/PixelOperator8.ttf" id="3_5txkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fn2bn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jsc3"]
+
+[node name="EndingScene" type="Node2D"]
+script = ExtResource("1_4ldgr")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 2307.0
+offset_bottom = 1298.0
+stream = ExtResource("1_qd62n")
+autoplay = true
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 1976.0
+offset_top = 1127.0
+offset_right = 2216.0
+offset_bottom = 1249.0
+
+[node name="SkipButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.01
+theme_override_colors/font_hover_pressed_color = Color(0.415686, 0.368627, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(0.819608, 0.819608, 1, 1)
+theme_override_fonts/font = ExtResource("3_5txkn")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fn2bn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0jsc3")
+text = "Skip
+Ending"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="VBoxContainer/SkipButton" to="." method="_on_skip_button_pressed"]

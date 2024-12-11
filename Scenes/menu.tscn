@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://dty08drslca3a"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_0hbry"]
+[ext_resource type="Texture2D" uid="uid://dexicgkqklj3u" path="res://level1/Assets/Backgrounds/awesomeCavePixelArt.png" id="1_fhahm"]
+[ext_resource type="FontFile" uid="uid://cq4xa5a1ybma5" path="res://level1/Assets/PixelOperator8-Bold.ttf" id="1_lmq8d"]
+[ext_resource type="Texture2D" uid="uid://brrrebyindyrc" path="res://level1/Assets/cavernabyss_logo3.png" id="2_lh76q"]
+[ext_resource type="AudioStream" uid="uid://cgukpn712jv4i" path="res://Assets/Music/MainMusic.MP3" id="5_eu83p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_slay2"]
+texture = ExtResource("1_fhahm")
+modulate_color = Color(0.380392, 0.443137, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3j5yy"]
+texture = ExtResource("2_lh76q")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwooa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rcrd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adm45"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpk4n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0hbry")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_slay2")
+
+[node name="logo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -526.0
+offset_right = 526.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3j5yy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -384.0
+offset_right = 593.0
+offset_bottom = -65.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.415686, 0.368627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.279472, 0.000272035, 0.852456, 1)
+theme_override_colors/font_color = Color(0.819608, 0.819608, 1, 1)
+theme_override_fonts/font = ExtResource("1_lmq8d")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwooa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rcrd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adm45")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cpk4n")
+text = "Play"
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.415686, 0.368627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.279472, 0.000272035, 0.852456, 1)
+theme_override_colors/font_color = Color(0.819608, 0.819608, 1, 1)
+theme_override_fonts/font = ExtResource("1_lmq8d")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwooa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rcrd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adm45")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cpk4n")
+text = "Controls"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.415686, 0.368627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.279472, 0.000272035, 0.852456, 1)
+theme_override_colors/font_color = Color(0.819608, 0.819608, 1, 1)
+theme_override_fonts/font = ExtResource("1_lmq8d")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwooa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0rcrd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adm45")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cpk4n")
+text = "Credits"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_eu83p")
+volume_db = 1.047
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

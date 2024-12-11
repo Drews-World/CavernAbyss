@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2weilknuota"]
+
+[ext_resource type="Script" path="res://Scripts/find_shield.gd" id="1_by0d7"]
+[ext_resource type="VideoStream" path="res://Assets/cutscenepics/findshield.ogv" id="1_ct5gv"]
+
+[node name="FindShield" type="Node2D"]
+script = ExtResource("1_by0d7")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 2306.0
+offset_bottom = 1298.0
+stream = ExtResource("1_ct5gv")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

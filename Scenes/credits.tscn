@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2k0n4mf622gh"]
+
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_2d6l4"]
+[ext_resource type="VideoStream" path="res://Assets/cutscenepics/caverncredits-ebgiou.ogv" id="1_y3ual"]
+[ext_resource type="FontFile" uid="uid://cq4xa5a1ybma5" path="res://level1/Assets/PixelOperator8-Bold.ttf" id="3_5dor2"]
+
+[sub_resource type="Theme" id="Theme_8qfj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58pey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wb2e"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_2d6l4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 2306.0
+offset_bottom = 1298.0
+stream = ExtResource("1_y3ual")
+volume_db = -12.57
+autoplay = true
+expand = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1703.0
+offset_top = 1170.0
+offset_right = 2270.0
+offset_bottom = 1249.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Menu Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8qfj0")
+theme_override_colors/font_hover_color = Color(0.415686, 0.368627, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0, 0.85098, 1)
+theme_override_colors/font_color = Color(0.819608, 0.819608, 1, 1)
+theme_override_fonts/font = ExtResource("3_5dor2")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/hover = SubResource("StyleBoxEmpty_58pey")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1wb2e")
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/Menu Button" to="." method="_on_menu_button_pressed"]

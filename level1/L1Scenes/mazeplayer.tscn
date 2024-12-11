@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0faf01p0dbkm"]
+
+[ext_resource type="Texture2D" uid="uid://dy861o7bcejk5" path="res://level1/Assets/Backgrounds/Hat.png" id="1_ie4nl"]
+[ext_resource type="Script" path="res://level1/L1Scenes/mazeplayer.gd" id="1_kigks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gaa2c"]
+radius = 258.0
+height = 516.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(258, 198)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_kigks")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31, 13)
+scale = Vector2(1.124, 1.052)
+texture = ExtResource("1_ie4nl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, -24)
+shape = SubResource("CapsuleShape2D_gaa2c")
